@@ -105,7 +105,6 @@ public class DownloadHandler extends Handler {
             LOG.d(TAG, "Build SDK Greater than or equal to Nougat");
             // String applicationId = (String) BuildHelper.getBuildConfigValue((Activity) mContext, "APPLICATION_ID");
             String  applicationId = CheckAppUpdate.APPLICATION_ID;
-            this.applicationId = preferences.getString("applicationId", this.applicationId);
             Uri apkUri = FileProvider.getUriForFile(mContext, applicationId + ".appupdate.provider", apkFile);
             Intent i = new Intent(Intent.ACTION_INSTALL_PACKAGE);
             i.setData(apkUri);

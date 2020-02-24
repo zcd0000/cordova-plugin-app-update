@@ -21,6 +21,14 @@ import org.json.JSONException;
 public class CheckAppUpdate extends CordovaPlugin {
     public static final String TAG = "CheckAppUpdate";
 
+    public static String APPLICATION_ID="";
+
+    @Override
+    public void initialize(org.apache.cordova.CordovaInterface cordova, org.apache.cordova.CordovaWebView webView) {
+        super.initialize(cordova, webView);
+        APPLICATION_ID = preferences.getString("applicationId", null);
+    }
+
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals("checkAppUpdate")) {
@@ -69,7 +77,7 @@ public class CheckAppUpdate extends CordovaPlugin {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             if (!cordova.getActivity().getPackageManager().canRequestPackageInstalls()) {
                 // String applicationId = (String) BuildHelper.getBuildConfigValue(cordova.getActivity(), "APPLICATION_ID");
-                this.applicationId = preferences.getString("applicationId", this.applicationId);
+                String applicationId = APPLICATION_ID;;
                 Uri packageUri = Uri.parse("package:" + applicationId);
                 Intent intent = new Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES)
                     .setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)

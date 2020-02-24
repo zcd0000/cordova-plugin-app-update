@@ -1,16 +1,16 @@
 {
-  "name": "cordova-plugin-app-update",
-  "version": "2.0.3",
-  "description": "Cordova App Update",
+  "name": "cordova-plugin-app-update-yqtms",
+  "version": "3.0.0",
+  "description": "Cordova App Update is maintained and upgraded by Yunqi Zhengtong Technology Ltd. Co.",
   "cordova": {
-    "id": "cordova-plugin-app-update",
+    "id": "cordova-plugin-app-update-yqtms",
     "platforms": [
       "android"
     ]
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vaenow/cordova-plugin-app-update.git"
+    "url": "git+https://github.com/zcd0000/cordova-plugin-app-update.git"
   },
   "keywords": [
     "cordova",
@@ -22,16 +22,16 @@
     "ecosystem:cordova",
     "cordova-android"
   ],
-  "author": "vaenow",
+  "author": "zcd0000",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vaenow/cordova-plugin-app-update/issues"
+    "url": "https://github.com/zcd0000/cordova-plugin-app-update/issues"
   },
   "scripts": {
     "test": "npm run jshint",
     "jshint": "node node_modules/jshint/bin/jshint www && node node_modules/jshint/bin/jshint src && node node_modules/jshint/bin/jshint tests"
   },
-  "homepage": "https://github.com/vaenow/cordova-plugin-app-update#readme",
+  "homepage": "https://github.com/zcd0000/cordova-plugin-app-update#readme",
   "devDependencies": {
     "jshint": "^2.6.0"
   }

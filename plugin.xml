@@ -51,6 +51,7 @@
         <source-file src="src/android/UpdateManager.java" target-dir="src/com/vaenow/appupdate/android"/>
         <source-file src="src/android/Utils.java" target-dir="src/com/vaenow/appupdate/android"/>
         <source-file src="src/android/Version.java" target-dir="src/com/vaenow/appupdate/android"/>
+        <source-file src="src/android/RemoteUpdateInfo.java" target-dir="src/com/vaenow/appupdate/android"/>
 
         <source-file src="res/values/appupdate_strings.xml" target-dir="res/values"/>
         <source-file src="res/values-en/appupdate_strings.xml" target-dir="res/values-en"/>

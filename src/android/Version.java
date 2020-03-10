@@ -6,10 +6,12 @@ package com.vaenow.appupdate.android;
 public class Version {
     private int local;
     private int remote;
+    private String whatsnewMsg;
 
-    public Version(int local, int remote) {
+    public Version(int local, int remote, String whatsnewMsg) {
         this.local = local;
         this.remote = remote;
+        this.whatsnewMsg = whatsnewMsg;
     }
 
     public int getLocal() {
@@ -19,4 +21,6 @@ public class Version {
     public int getRemote() {
         return remote;
     }
+
+    public String getWhatsnewMsg() { return whatsnewMsg; }
 }

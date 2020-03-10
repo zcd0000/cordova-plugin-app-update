@@ -54,10 +54,11 @@ public class CheckUpdateThread implements Runnable {
     @Override
     public void run() {
         int versionCodeLocal = getVersionCodeLocal(mContext); // 获取当前软件版本
-        int versionCodeRemote = getVersionCodeRemote();  //获取服务器当前软件版本
+        RemoteUpdateInfo remoteInfo = getVersionCodeRemote();  //获取服务器当前软件版本
+        int versionCodeRemote = remoteInfo.versionCodeRemote;
 
         queue.clear(); //ensure the queue is empty
-        queue.add(new Version(versionCodeLocal, versionCodeRemote));
+        queue.add(new Version(versionCodeLocal, versionCodeRemote, remoteInfo.whatsnewMsg));
 
         if (versionCodeLocal == 0 || versionCodeRemote == 0) {
             mHandler.sendEmptyMessage(Constants.VERSION_RESOLVE_FAIL);
@@ -133,8 +134,9 @@ public class CheckUpdateThread implements Runnable {
      *
      * @return
      */
-    private int getVersionCodeRemote() {
+    private RemoteUpdateInfo getVersionCodeRemote() {
         int versionCodeRemote = 0;
+        String whatsnewMsg = "";
 
         InputStream is = returnFileIS(updateXmlUrl);
         // 解析XML文件。 由于XML文件比较小，因此使用DOM方式进行解析
@@ -146,8 +148,10 @@ public class CheckUpdateThread implements Runnable {
         }
         if (null != getMHashMap()) {
             versionCodeRemote = Integer.valueOf(getMHashMap().get("version"));
+            whatsnewMsg = getMHashMap().get("whatsnew");
+            whatsnewMsg = whatsnewMsg != null ? whatsnewMsg.replaceAll(";;", "\n"): "";
         }
 
-        return versionCodeRemote;
+        return new RemoteUpdateInfo(versionCodeRemote, whatsnewMsg);
     }
 }

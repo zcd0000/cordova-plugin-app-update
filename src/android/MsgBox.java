@@ -37,13 +37,17 @@ public class MsgBox {
      *
      * @param onClickListener
      */
-    public Dialog showNoticeDialog(OnClickListener onClickListener) {
+    public Dialog showNoticeDialog(OnClickListener onClickListener, String whatsnewMsg) {
         if (noticeDialog == null) {
             LOG.d(TAG, "showNoticeDialog");
             // 构造对话框
             AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
             builder.setTitle(msgHelper.getString(MsgHelper.UPDATE_TITLE));
-            builder.setMessage(msgHelper.getString(MsgHelper.UPDATE_WHATSNEW_MESSAGE));
+            if ( whatsnewMsg.isEmpty()) {
+                builder.setMessage(msgHelper.getString(MsgHelper.UPDATE_WHATSNEW_MESSAGE));
+            } else {
+                builder.setMessage(whatsnewMsg);
+            }
             // 更新
             builder.setPositiveButton(msgHelper.getString(MsgHelper.UPDATE_UPDATE_BTN), onClickListener);
             noticeDialog = builder.create();

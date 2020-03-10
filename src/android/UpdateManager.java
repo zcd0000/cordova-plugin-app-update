@@ -148,6 +148,7 @@ public class UpdateManager {
         Version version = queue.get(0);
         int versionCodeLocal = version.getLocal();
         int versionCodeRemote = version.getRemote();
+        String whatsnewMsg = version.getWhatsnewMsg();
 
         boolean skipPromptDialog = false;
         try {
@@ -171,7 +172,7 @@ public class UpdateManager {
                     mHandler.sendEmptyMessage(Constants.DOWNLOAD_CLICK_START);
                 } else {
                     // 显示提示对话框
-                    msgBox.showNoticeDialog(noticeDialogOnClick);
+                    msgBox.showNoticeDialog(noticeDialogOnClick, whatsnewMsg);
                     mHandler.sendEmptyMessage(Constants.VERSION_NEED_UPDATE);
                 }
             }

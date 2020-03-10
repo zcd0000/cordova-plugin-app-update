@@ -44,6 +44,10 @@ public class ParseXmlService {
                 else if (("url".equals(childElement.getNodeName()))) {
                     hashMap.put("url", childElement.getFirstChild().getNodeValue());
                 }
+                //更新消息
+                else if (("whatsnew".equals(childElement.getNodeName()))) {
+                    hashMap.put("whatsnew", childElement.getFirstChild().getNodeValue());
+                }
             }
         }
         return hashMap;

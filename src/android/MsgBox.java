@@ -44,7 +44,7 @@ public class MsgBox {
             AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
             builder.setTitle(msgHelper.getString(MsgHelper.UPDATE_TITLE));
             if ( whatsnewMsg.isEmpty()) {
-                builder.setMessage(msgHelper.getString(MsgHelper.UPDATE_WHATSNEW_MESSAGE));
+                builder.setMessage(msgHelper.getString(MsgHelper.UPDATE_MESSAGE));
             } else {
                 builder.setMessage(whatsnewMsg);
             }
